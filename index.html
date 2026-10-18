@@ -68,7 +68,7 @@
       filter: drop-shadow(3px 3px 0px #111111);
     }
 
-    /* BLOCCHI DI TESTO PULITI (SENZA DATE O PAGINE) */
+    /* BLOCCHI DI TESTO PULITI */
     .diary-paper {
       background: #fcf8ee;
       border: 3px solid #111111;
@@ -85,31 +85,60 @@
       color: #222222;
     }
 
-    /* PLAYER MUSICALE */
-    .music-player-box {
-      background: #ffffff;
+    /* PLAYER MUSICALE IN STILE COSMIC-S RETRO */
+    .cosmic-player {
+      background: #111111;
+      color: #ffffff;
       border: 3px solid #111111;
       border-radius: 14px;
-      padding: 18px 22px;
-      box-shadow: 5px 5px 0px #111111;
+      padding: 15px 20px;
+      box-shadow: 5px 5px 0px rgba(255,255,255,0.7);
       display: flex;
       flex-direction: column;
       gap: 10px;
-    }
-
-    .music-title {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: #1a3a5f;
-    }
-
-    audio {
       width: 100%;
-      height: 35px;
-      accent-color: #1a3a5f;
+      max-width: 320px;
     }
 
-    /* SEZIONE PERSONAGGI DEDICATA */
+    .player-screen {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #e0e0e0;
+      text-align: center;
+      border-bottom: 1px dashed #444;
+      padding-bottom: 6px;
+    }
+
+    .player-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .player-btn {
+      background: #ffffff;
+      color: #111111;
+      border: 2px solid #111;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 2px 2px 0px #111;
+      transition: transform 0.1s ease;
+    }
+
+    .player-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* SEZIONE PERSONAGGI */
     .characters-section {
       background: #fcf8ee;
       border: 3px solid #111111;
@@ -185,7 +214,7 @@
       }
     }
 
-    /* IMMAGINI CON BORDO E OMBRA (PER LE GIF/FOTO NORMALI) */
+    /* IMMAGINI CON BORDO E OMBRA */
     .scrapbook-element {
       display: flex;
       justify-content: center;
@@ -204,7 +233,7 @@
       background: #ffffff;
     }
 
-    /* IMMAGINI SENZA BORDO O CONTENITORE (PER LOGHI TRASPARENTI E FOGLIO) */
+    /* IMMAGINI SENZA BORDO (TRASPARENTI COME IL LOGO GIAPPONESE, HOWL-WALK E FOGLIO) */
     .scrapbook-element-clean {
       display: flex;
       justify-content: center;
@@ -223,7 +252,7 @@
       filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.25));
     }
 
-    /* Dimensioni flessibili per variare le foto */
+    /* Dimensioni flessibili */
     .img-small { max-width: 180px; }
     .img-medium { max-width: 280px; }
     .img-large { max-width: 380px; }
@@ -271,26 +300,32 @@
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Howl's_Moving_Castle_Bluray_snapshot%20(1).png" alt="Movie Cover" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:30px; border-radius:14px; font-weight:bold;\'>🎬 Movie Cover</div>'">
       </div>
 
-      <!-- 2. Player Musicale -->
-      <div class="music-player-box rot-right">
-        <div class="music-title">🎵 Now Playing: Merry-Go-Round of Life</div>
-        <audio controls>
-          <source src="tuo-file-audio.mp3" type="audio/mpeg">
-          Il tuo browser non supporta l'elemento audio.
-        </audio>
+      <!-- 2. Player Musicale stile Cosmic-S -->
+      <div class="scrapbook-element rot-right" style="justify-content: flex-end;">
+        <div class="cosmic-player">
+          <div class="player-screen">♫ Merry-Go-Round of Life</div>
+          <div class="player-controls">
+            <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime -= 5">«</button>
+            <button class="player-btn" onclick="let a=document.getElementById('bg-audio'); a.paused ? a.play() : a.pause();">▶</button>
+            <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime += 5">»</button>
+          </div>
+          <audio id="bg-audio" loop>
+            <source src="tuo-file-audio.mp3" type="audio/mpeg">
+          </audio>
+        </div>
       </div>
 
-      <!-- 3. Primo blocco di testo (PULITO, SENZA DATA E PAGINA) -->
+      <!-- 3. Primo blocco di testo: Introduzione -->
       <div class="diary-paper rot-left span-two">
         <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. ✨</p>
       </div>
 
-      <!-- 4. Prima GIF (Walking on Air) -->
-      <div class="scrapbook-element rot-right">
+      <!-- 4. Prima GIF (Walking on Air) - ORA SENZA BORDO E SCATOLA (CLEAN) -->
+      <div class="scrapbook-element-clean rot-right">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-walk.gif" alt="Walking on Air" class="img-large">
       </div>
 
-      <!-- 5. Logo Giapponese (SENZA BORDO O SCATOLA BIANCA) -->
+      <!-- 5. Logo Giapponese (Senza bordo o scatola) -->
       <div class="scrapbook-element-clean rot-left">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Hauru_no_Ugoku_Shiro.gif" alt="Studio Ghibli Logo" class="img-medium">
       </div>
@@ -331,7 +366,7 @@
         </div>
       </div>
 
-      <!-- 7. Il tuo foglio di diario modificato (SENZA SCATOLA BIANCA) -->
+      <!-- 7. Il foglio di diario (Senza scatola bianca) -->
       <div class="scrapbook-element-clean rot-left">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Handwritten Note" class="img-medium">
       </div>
@@ -341,22 +376,27 @@
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer Breakfast" class="img-medium">
       </div>
 
-      <!-- 9. Secondo blocco di testo (PULITO, SENZA DATA E PAGINA) -->
-      <div class="diary-paper rot-left span-two">
+      <!-- 9. NUOVA IMMAGINE EXTRA SOTTO A CALCIFER (Riempie lo spazio vuoto cerchiato in rosso) -->
+      <div class="scrapbook-element rot-left">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/extra-new.jpg" alt="Extra Image" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:25px; border-radius:14px; font-weight:bold;\'>🖼️ New Extra Image</div>'">
+      </div>
+
+      <!-- 10. Secondo blocco di testo: Info autore -->
+      <div class="diary-paper rot-right span-two">
         <p>Directed by legendary filmmaker <strong>Hayao Miyazaki</strong> and produced by Studio Ghibli in 2004, the movie is based on the 1986 fantasy novel by British author <strong>Diana Wynne Jones</strong>. The combination of hand-drawn European architecture and magical storytelling makes it unforgettable. 🏰✨</p>
       </div>
 
-      <!-- 10. GIF Stanza di Howl -->
+      <!-- 11. GIF Stanza di Howl -->
       <div class="scrapbook-element rot-left span-two">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-room.gif" alt="Howl's Room" class="img-large">
       </div>
 
-      <!-- 11. Terzo blocco di testo (PULITO, SENZA DATA E PAGINA) -->
+      <!-- 12. Terzo blocco di testo: Citazioni -->
       <div class="diary-paper rot-right span-two">
         <p><em>"They say that the best blaze burns brightest when circumstances are at their worst."</em> — A heart's a heavy burden, but the warmth of family and love can overcome any curse. 🔥❤️</p>
       </div>
 
-      <!-- 12. Galleria Immagini Extra Sparse in fondo -->
+      <!-- 13. Galleria Immagini Extra Sparse in fondo -->
       <div class="scrapbook-element rot-left">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/f162115974ded1bb6e0dca984c2c5b2e.jpg" alt="Extra 1" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 1</div>'">
       </div>
