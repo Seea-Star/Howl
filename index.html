@@ -96,17 +96,12 @@
       color: #222222;
     }
 
-    /* PLAYER MUSICALE CON GIF DI SFONDO */
+    /* PLAYER MUSICALE NUOVO: RIVESTIMENTO NERO CHE COPRE TUTTO */
     .cosmic-player {
       background: url('https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c14b6fdbee2490ed3ff5a726d32d749f.gif') center/cover no-repeat;
-      color: #ffffff;
       border: 3px solid #111111;
       border-radius: 14px;
-      padding: 15px 20px;
       box-shadow: 5px 5px 0px #111111;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
       width: 100%;
       max-width: 300px;
       margin: 0 auto;
@@ -120,43 +115,48 @@
       box-shadow: 8px 8px 0px #111111;
     }
 
+    /* L'OMBRA SCURA COPRE ORA L'INTERA IMMAGINE */
     .cosmic-player-inner {
       background: rgba(0, 0, 0, 0.45);
-      border-radius: 10px;
-      padding: 10px;
+      backdrop-filter: blur(2px);
+      padding: 16px 20px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      backdrop-filter: blur(2px);
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
     }
 
     .player-screen {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 800;
       letter-spacing: 0.5px;
       color: #ffffff;
       text-align: center;
-      border-bottom: 1px dashed rgba(255,255,255,0.5);
+      border-bottom: 1px dashed rgba(255,255,255,0.4);
       padding-bottom: 6px;
-      text-shadow: 1px 1px 2px #000;
+      width: 100%;
+      text-shadow: 1px 1px 3px #000;
     }
 
     .player-controls {
       display: flex;
       justify-content: center;
-      gap: 12px;
       align-items: center;
     }
 
+    /* BOTTONE UNICO CON LA NOTA MUSICALE */
     .player-btn {
       background: #ffffff;
       color: #111111;
       border: 2px solid #111;
       border-radius: 50%;
-      width: 32px;
-      height: 32px;
+      width: 38px;
+      height: 38px;
       font-weight: 800;
-      font-size: 0.8rem;
+      font-size: 1rem;
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -166,7 +166,7 @@
     }
 
     .player-btn:hover {
-      transform: scale(1.1);
+      transform: scale(1.12);
       background: #fcf8ee;
     }
 
@@ -272,17 +272,17 @@
       justify-content: center;
     }
 
-    /* GALLERIA EXTRA IN BASSO (COMPATTA SU MOBILE, 3-4 COLONNE SU DESKTOP) */
+    /* GALLERIA EXTRA IN BASSO (COMPATTA SU MOBILE, 4 COLONNE SU DESKTOP) */
     .bottom-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 per riga su mobile */
+      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       align-items: center;
     }
 
     @media screen and (min-width: 768px) {
       .bottom-gallery-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 per riga su desktop */
+        grid-template-columns: repeat(4, 1fr);
         gap: 20px;
       }
     }
@@ -345,7 +345,6 @@
       filter: drop-shadow(4px 6px 8px rgba(0,0,0,0.35));
     }
 
-    /* L'immagine di Howl e Sophie si adatta automaticamente all'altezza dei due elementi a destra */
     .auto-fit-walk {
       height: 100%;
       display: flex;
@@ -409,15 +408,13 @@
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Howl's_Moving_Castle_Bluray_snapshot%20(1).png" alt="Movie Cover" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:30px; border-radius:14px; font-weight:bold;\'>🎬 Movie Cover</div>'">
       </div>
 
-      <!-- 2. Player Musicale stile Cosmic-S con GIF di sfondo -->
+      <!-- 2. Player Musicale stile Cosmic-S con overlay completo e bottone nota -->
       <div class="scrapbook-element rot-right" style="align-self: center;">
         <div class="cosmic-player">
           <div class="cosmic-player-inner">
-            <div class="player-screen">♫ Merry-Go-Round of Life</div>
+            <div class="player-screen">Merry-Go-Round of Life</div>
             <div class="player-controls">
-              <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime -= 5">«</button>
-              <button class="player-btn" onclick="let a=document.getElementById('bg-audio'); a.paused ? a.play() : a.pause();">▶</button>
-              <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime += 5">»</button>
+              <button class="player-btn" title="Play/Pause" onclick="let a=document.getElementById('bg-audio'); a.paused ? a.play() : a.pause();">♫</button>
             </div>
           </div>
           <audio id="bg-audio" loop>
@@ -522,7 +519,7 @@
         <p><em>"They say that the best blaze burns brightest when circumstances are at their worst."</em> — A heart's a heavy burden, but the warmth of family and love can overcome any curse. 🔥❤️</p>
       </div>
 
-      <!-- 12. GALLERIA IN BASSO COMPATTA E RICCA (2 per riga su telefono, 4 per riga su computer) -->
+      <!-- 12. GALLERIA IN BASSO COMPATTA E RICCA -->
       <div class="bottom-gallery-grid span-two">
         
         <div class="scrapbook-element rot-left">
@@ -538,7 +535,7 @@
         </div>
 
         <div class="scrapbook-element rot-right">
-          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Screenshot-2026-09-23-152423-1024x553.webp" alt="Extra 4" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.75rem; font-weight:bold;\'>🖼️ Extra 4</div>'">
+          <img src="extra-4.gif" alt="Extra 4" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.75rem; font-weight:bold;\'>🖼️ Extra 4</div>'">
         </div>
 
         <div class="scrapbook-element rot-left">
