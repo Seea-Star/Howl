@@ -13,7 +13,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* SFONDO PRINCIPALE: Sfumatura perfetta con i tuoi codici #002A54 e #C2CC49 */
+    /* SFONDO PRINCIPALE: Dal blu notte in alto all'azzurro cielo luminoso in basso */
     body {
       width: 100%;
       min-height: 100vh;
@@ -24,10 +24,10 @@
       display: flex;
       justify-content: center;
       position: relative;
-      background: linear-gradient(to bottom, #002A54 0%, #617b4f 50%, #C2CC49 100%);
+      background: linear-gradient(to bottom, #1a3a5f 0%, #4a7c9d 50%, #87b2c9 100%);
     }
 
-    /* GRIGLIA MORBIDA A QUADRETTI: Linee trasparenti e leggere */
+    /* GRIGLIA A QUADRETTI LEGGERA */
     body::before {
       content: "";
       position: fixed;
@@ -36,110 +36,103 @@
       width: 100%;
       height: 100%;
       background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-      background-size: 20px 20px;
+        linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px);
+      background-size: 25px 25px;
       pointer-events: none;
       z-index: 0;
     }
 
     .site-wrapper {
-      max-width: 800px;
+      max-width: 750px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 30px;
       position: relative;
       z-index: 1;
     }
 
-    /* LOGO UFFICIALE FLUTTUANTE SENZA BOX SCURO */
+    /* LOGO GRANDE E PULITO IN ALTO */
     .top-banner {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px 0 20px 0;
+      padding: 10px 0;
     }
 
     .top-banner img.logo-img {
-      max-width: 340px;
+      max-width: 420px;
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.4));
+      filter: drop-shadow(3px 3px 0px #111111);
     }
 
-    /* BOX UNICO BIANCO SOFT SENZA APPESANTIRE */
-    .content-box {
-      background: rgba(255, 255, 255, 0.92);
+    /* FOGLIO DI DIARIO (Usa l'immagine della carta da lettere) */
+    .diary-paper {
+      background: #fcf8ee;
       border: 3px solid #111111;
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: 4px 4px 0px #111111;
+      border-radius: 12px;
+      padding: 25px 30px;
+      box-shadow: 6px 6px 0px #111111;
+      position: relative;
+      transform: rotate(-1deg);
+    }
+
+    .diary-paper p {
       font-size: 0.95rem;
-      font-weight: 600;
-      line-height: 1.6;
+      font-weight: 700;
+      line-height: 1.8;
       color: #222222;
-      backdrop-filter: blur(5px);
-    }
-
-    .content-box h2 {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      font-weight: 800;
-      color: #002A54;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* GALLERIA A GRIGLIA PER LE GIF DI HOWL */
-    .gif-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
       margin-top: 10px;
     }
 
-    .gif-card {
-      background: #ffffff;
-      border: 2px solid #111111;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 3px 3px 0px #111111;
+    /* CONTENITORE LIBERO PER LE GIF SPARSE */
+    .scrapbook-area {
       display: flex;
       flex-direction: column;
+      gap: 25px;
+      position: relative;
+      padding: 10px;
     }
 
-    .gif-card img {
-      width: 100%;
-      height: 150px;
+    .gif-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .gif-item.right {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .gif-item img {
+      border: 3px solid #111111;
+      border-radius: 14px;
+      box-shadow: 4px 4px 0px #111111;
       object-fit: cover;
-      display: block;
+      background: #fff;
     }
 
-    .gif-card p {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-align: center;
-      padding: 8px 5px;
-      background: #fcfcfc;
-      border-top: 2px solid #111111;
-      color: #111;
-    }
+    /* GIF di dimensioni diverse come volevi tu */
+    .gif-large { width: 240px; height: 160px; }
+    .gif-medium { width: 180px; height: 130px; }
+    .gif-small { width: 130px; height: 130px; }
 
-    .quote-box {
-      background: #111111;
-      color: #ffffff;
+    .gif-caption {
+      background: #ffffff;
       border: 2px solid #111111;
-      border-radius: 18px;
-      padding: 16px;
-      text-align: center;
-      font-style: italic;
-      box-shadow: 4px 4px 0px rgba(255,255,255,0.8);
-      font-size: 0.95rem;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      box-shadow: 3px 3px 0px #111111;
+      display: inline-block;
     }
 
+    /* BOTTONE INDIETRO */
     .back-btn {
       display: inline-block;
       background: #ffffff;
@@ -150,14 +143,15 @@
       font-weight: 800;
       font-size: 0.85rem;
       text-align: center;
-      border: 2px solid #111111;
-      box-shadow: 4px 4px 0px #111111;
+      border: 3px solid #111;
+      box-shadow: 4px 4px 0px #111;
+      align-self: center;
+      margin-top: 10px;
       transition: transform 0.1s ease;
     }
 
     .back-btn:hover {
       transform: translateY(-2px);
-      background: #f8f8f8;
     }
   </style>
 </head>
@@ -165,54 +159,46 @@
 
   <div class="site-wrapper">
 
-    <!-- Top Banner con Logo originale fluttuante -->
+    <!-- Logo originale grande -->
     <header class="top-banner">
       <img src="howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
 
-    <!-- Contenuto Unico dello Shrine -->
-    <div style="display: flex; flex-direction: column; gap: 20px;">
+    <!-- Foglio di diario/lettera con il tuo messaggio -->
+    <div class="diary-paper">
+      <div style="font-family: monospace; font-size: 0.8rem; border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">
+        Date: <span>Shrine</span> &nbsp;&nbsp;&nbsp;&nbsp; Page: <span>01</span>
+      </div>
+      <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. I wanted a special corner on my site to collect all my favorite moments of Sophie, Howl, and Calcifer. ✨</p>
+    </div>
+
+    <!-- Area scrapbook libera con GIF di dimensioni diverse e disposte a mano -->
+    <div class="scrapbook-area">
       
-      <div class="content-box">
-        <h2>✦ About Howl's Moving Castle</h2>
-        <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong> (Hauru no Ugoku Shiro). Directed by Hayao Miyazaki, this masterpiece is full of magic, cozy atmospheres, and unforgettable moments between Howl, Sophie, and Calcifer!</p>
-      </div>
-
-      <!-- CITAZIONE SCURA IN STILE RETRO -->
-      <div class="quote-box">
-        "They say that the best blaze burns brightest when circumstances are at their worst." 🔥
-      </div>
-
-      <!-- SEZIONE GALLERIA GIF DEDICATA A HOWL -->
-      <div class="content-box">
-        <h2>✨ Favorite Scenes & Moments</h2>
-        <p style="font-size: 0.85rem; margin-bottom: 12px;">Here are my absolute favorite scenes from the movie:</p>
-        
-        <div class="gif-gallery">
-          <div class="gif-card">
-            <img src="howl-walk.gif" alt="Walking in the air">
-            <p>Walking on Air ✨</p>
-          </div>
-          <div class="gif-card">
-            <img src="calcifer-food.gif" alt="Calcifer cooking breakfast">
-            <p>Calcifer's Breakfast 🍳</p>
-          </div>
-          <div class="gif-card">
-            <img src="howl-room.gif" alt="Howl's magic room">
-            <p>Howl's Magic Room 🔮</p>
-          </div>
-          <div class="gif-card">
-            <img src="howl-castle.gif" alt="The moving castle">
-            <p>The Castle Walking 🏰</p>
-          </div>
+      <div class="gif-item">
+        <img src="howl-walk.gif" alt="Walking on air" class="gif-large">
+        <div>
+          <span class="gif-caption">Walking on Air ✨</span>
         </div>
       </div>
 
-      <div>
-        <a href="shrines.html" class="back-btn">&larr; BACK TO SHRINES</a>
+      <div class="gif-item right">
+        <img src="calcifer-food.gif" alt="Calcifer cooking" class="gif-medium">
+        <div>
+          <span class="gif-caption">Calcifer's Breakfast 🔥</span>
+        </div>
+      </div>
+
+      <div class="gif-item">
+        <img src="howl-room.gif" alt="Howl room" class="gif-small">
+        <div>
+          <span class="gif-caption">The Magic Room 🔮</span>
+        </div>
       </div>
 
     </div>
+
+    <a href="shrines.html" class="back-btn">&larr; BACK TO SHRINES</a>
 
   </div>
 
