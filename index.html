@@ -68,7 +68,7 @@
       filter: drop-shadow(3px 3px 0px #111111);
     }
 
-    /* BLOCCHI DI TESTO STILE DIARIO RETRÒ */
+    /* BLOCCHI DI TESTO PULITI (SENZA DATE O PAGINE) */
     .diary-paper {
       background: #fcf8ee;
       border: 3px solid #111111;
@@ -76,15 +76,6 @@
       padding: 22px 25px;
       box-shadow: 5px 5px 0px #111111;
       position: relative;
-    }
-
-    .diary-header {
-      font-family: monospace;
-      font-size: 0.75rem;
-      border-bottom: 2px solid #333;
-      padding-bottom: 4px;
-      margin-bottom: 10px;
-      font-weight: bold;
     }
 
     .diary-paper p {
@@ -194,7 +185,7 @@
       }
     }
 
-    /* TUTTE LE IMMAGINI ED ELEMENTI SI ADATTANO IN MODO NATURALE */
+    /* IMMAGINI CON BORDO E OMBRA (PER LE GIF/FOTO NORMALI) */
     .scrapbook-element {
       display: flex;
       justify-content: center;
@@ -208,16 +199,34 @@
       box-shadow: 4px 4px 0px #111111;
       width: auto;
       max-width: 100%;
-      height: auto; /* Mantiene sempre le proporzioni dell'immagine */
+      height: auto;
       display: block;
       background: #ffffff;
+    }
+
+    /* IMMAGINI SENZA BORDO O CONTENITORE (PER LOGHI TRASPARENTI E FOGLIO) */
+    .scrapbook-element-clean {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .scrapbook-element-clean img {
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.25));
     }
 
     /* Dimensioni flessibili per variare le foto */
     .img-small { max-width: 180px; }
     .img-medium { max-width: 280px; }
     .img-large { max-width: 380px; }
-    .img-full { max-width: 100%; }
 
     /* Rotazioni scrapbook */
     .rot-left { transform: rotate(-2deg); }
@@ -271,9 +280,8 @@
         </audio>
       </div>
 
-      <!-- 3. Primo blocco di testo: Benvenuto e Introduzione -->
+      <!-- 3. Primo blocco di testo (PULITO, SENZA DATA E PAGINA) -->
       <div class="diary-paper rot-left span-two">
-        <div class="diary-header">Date: Shrine &nbsp;&nbsp;&nbsp;&nbsp; Page: 01</div>
         <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. ✨</p>
       </div>
 
@@ -282,15 +290,14 @@
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-walk.gif" alt="Walking on Air" class="img-large">
       </div>
 
-      <!-- 5. Logo Giapponese / Logo Studio Ghibli -->
-      <div class="scrapbook-element rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Hauru_no_Ugoku_Shiro.gif" alt="Studio Ghibli Logo" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:20px; border-radius:14px; font-weight:bold;\'>🌿 Studio Ghibli / Japanese Logo</div>'">
+      <!-- 5. Logo Giapponese (SENZA BORDO O SCATOLA BIANCA) -->
+      <div class="scrapbook-element-clean rot-left">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Hauru_no_Ugoku_Shiro.gif" alt="Studio Ghibli Logo" class="img-medium">
       </div>
 
-      <!-- 6. SEZIONE PERSONAGGI (Intervallata con lo spazio sopra) -->
+      <!-- 6. SEZIONE PERSONAGGI -->
       <div class="characters-section rot-right span-two">
-        <div class="diary-header">Date: Characters &nbsp;&nbsp;&nbsp;&nbsp; Page: 02</div>
-        <p style="font-size: 0.9rem; font-weight: 700; color: #222;">Main Characters:</p>
+        <p style="font-size: 0.95rem; font-weight: 800; color: #222; margin-bottom: 5px;">Main Characters:</p>
         
         <div class="characters-grid">
           <div class="character-card">
@@ -324,8 +331,8 @@
         </div>
       </div>
 
-      <!-- 7. Il tuo foglio di diario modificato su Ibis Paint -->
-      <div class="scrapbook-element rot-left">
+      <!-- 7. Il tuo foglio di diario modificato (SENZA SCATOLA BIANCA) -->
+      <div class="scrapbook-element-clean rot-left">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Handwritten Note" class="img-medium">
       </div>
 
@@ -334,29 +341,22 @@
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer Breakfast" class="img-medium">
       </div>
 
-      <!-- 9. Blocco di testo: Info sull'autore Hayao Miyazaki e sul libro -->
+      <!-- 9. Secondo blocco di testo (PULITO, SENZA DATA E PAGINA) -->
       <div class="diary-paper rot-left span-two">
-        <div class="diary-header">Date: Author & Info &nbsp;&nbsp;&nbsp;&nbsp; Page: 03</div>
         <p>Directed by legendary filmmaker <strong>Hayao Miyazaki</strong> and produced by Studio Ghibli in 2004, the movie is based on the 1986 fantasy novel by British author <strong>Diana Wynne Jones</strong>. The combination of hand-drawn European architecture and magical storytelling makes it unforgettable. 🏰✨</p>
       </div>
 
-      <!-- 10. Immagine/Foto di Hayao Miyazaki -->
-      <div class="scrapbook-element rot-right">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/HayaoMiyazakiCCJuly09.jpg" alt="Hayao Miyazaki" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:20px; border-radius:14px; font-weight:bold;\'>🎨 Hayao Miyazaki Photo</div>'">
-      </div>
-
-      <!-- 11. GIF Stanza di Howl -->
-      <div class="scrapbook-element rot-left">
+      <!-- 10. GIF Stanza di Howl -->
+      <div class="scrapbook-element rot-left span-two">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-room.gif" alt="Howl's Room" class="img-large">
       </div>
 
-      <!-- 12. Blocco di testo: Curiosità e citazioni -->
+      <!-- 11. Terzo blocco di testo (PULITO, SENZA DATA E PAGINA) -->
       <div class="diary-paper rot-right span-two">
-        <div class="diary-header">Date: Quotes & Notes &nbsp;&nbsp;&nbsp;&nbsp; Page: 04</div>
         <p><em>"They say that the best blaze burns brightest when circumstances are at their worst."</em> — A heart's a heavy burden, but the warmth of family and love can overcome any curse. 🔥❤️</p>
       </div>
 
-      <!-- 13. Galleria Immagini Extra Sparse in fondo -->
+      <!-- 12. Galleria Immagini Extra Sparse in fondo -->
       <div class="scrapbook-element rot-left">
         <img src="extra-1.gif" alt="Extra 1" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 1</div>'">
       </div>
@@ -374,7 +374,7 @@
       </div>
 
       <div class="scrapbook-element rot-left span-two" style="justify-self: center;">
-        <img src="extra-5.gif" alt="Extra 5" class="img-large" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 5 (Grande)</div>'">
+        <img src="extra-5.gif" alt="Extra 5" class="img-large" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 5</div>'">
       </div>
 
     </div>
