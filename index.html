@@ -15,12 +15,12 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      /* Sfumatura più chiara e soft: Blu cielo/notte chiaro in alto, Verde prato morbido in basso */
+      /* Sfumatura morbida: Blu cielo/notte in alto, Verde prato in basso */
       background-color: #2b4c6f;
       background-image: 
-        linear-gradient(to bottom, #2b4c6f 0%, #4a6b5d 50%, #3b5c4a 100%),
-        linear-gradient(#e1e1e6 1px, transparent 1px),
-        linear-gradient(90deg, #e1e1e6 1px, transparent 1px);
+        linear-gradient(to bottom, #2b4c6f 0%, #3d5e50 50%, #2f4c3c 100%),
+        linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px);
       background-size: 100% 100%, 20px 20px, 20px 20px;
       background-attachment: fixed;
       color: #111111;
@@ -33,15 +33,14 @@
     }
 
     .site-wrapper {
-      max-width: 980px;
+      max-width: 800px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      position: relative;
+      gap: 16px;
     }
 
-    /* Logo senza box scuro attorno, pulito e fluttuante */
+    /* Logo fluttuante senza box scuro */
     .top-banner {
       display: flex;
       justify-content: center;
@@ -50,7 +49,7 @@
     }
 
     .top-banner img.logo-img {
-      max-width: 320px;
+      max-width: 340px;
       width: 100%;
       height: auto;
       display: block;
@@ -59,47 +58,49 @@
 
     .content-box {
       background: #ffffff;
-      border: 3px solid #111111;
-      border-radius: 22px;
-      padding: 20px;
+      border: 2px solid #111111;
+      border-radius: 20px;
+      padding: 25px;
       box-shadow: 4px 4px 0px #111111;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 600;
       line-height: 1.6;
-      color: #111111;
+      color: #333333;
     }
 
     .content-box h2 {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       margin-bottom: 10px;
       font-weight: 800;
-      color: #2b4c6f;
+      color: #111111;
     }
 
     .back-btn {
-      width: 100%;
+      display: inline-block;
       background: #ffffff;
       color: #111111;
-      border: 3px solid #111;
-      border-radius: 18px;
-      padding: 14px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      text-decoration: none;
       font-weight: 800;
       font-size: 0.85rem;
-      cursor: pointer;
-      box-shadow: 4px 4px 0px #111;
       text-align: center;
-      text-decoration: none;
-      display: block;
-      transition: transform 0.1s ease;
+      border: 2px solid #111111;
+      box-shadow: 3px 3px 0px #111111;
+      transition: transform 0.1s ease, background 0.1s ease;
     }
-    .back-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #111; background: #fafafa; }
-    .back-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #111; }
+
+    .back-btn:hover {
+      background: #fdfdfd;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body>
 
   <div class="site-wrapper">
 
-    <!-- Top Banner con solo il logo trasparente -->
+    <!-- Header con solo il logo originale -->
     <header class="top-banner">
       <img src="howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
