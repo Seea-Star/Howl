@@ -66,9 +66,14 @@
       height: auto;
       display: block;
       filter: drop-shadow(3px 3px 0px #111111);
+      transition: transform 0.3s ease;
     }
 
-    /* BLOCCHI DI TESTO PULITI */
+    .top-banner img.logo-img:hover {
+      transform: scale(1.03);
+    }
+
+    /* BLOCCHI DI TESTO PULITI CON EFFETTO HOVER */
     .diary-paper {
       background: #fcf8ee;
       border: 3px solid #111111;
@@ -76,6 +81,12 @@
       padding: 22px 25px;
       box-shadow: 5px 5px 0px #111111;
       position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .diary-paper:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 8px 8px 0px #111111;
     }
 
     .diary-paper p {
@@ -85,30 +96,49 @@
       color: #222222;
     }
 
-    /* PLAYER MUSICALE IN STILE COSMIC-S RETRO */
+    /* PLAYER MUSICALE CON GIF DI SFONDO */
     .cosmic-player {
-      background: #111111;
+      background: url('https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c14b6fdbee2490ed3ff5a726d32d749f.gif') center/cover no-repeat;
       color: #ffffff;
       border: 3px solid #111111;
       border-radius: 14px;
       padding: 15px 20px;
-      box-shadow: 5px 5px 0px rgba(255,255,255,0.7);
+      box-shadow: 5px 5px 0px #111111;
       display: flex;
       flex-direction: column;
       gap: 10px;
       width: 100%;
       max-width: 300px;
       margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cosmic-player:hover {
+      transform: translateY(-5px) rotate(1deg);
+      box-shadow: 8px 8px 0px #111111;
+    }
+
+    .cosmic-player-inner {
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      backdrop-filter: blur(2px);
     }
 
     .player-screen {
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.5px;
-      color: #e0e0e0;
+      color: #ffffff;
       text-align: center;
-      border-bottom: 1px dashed #444;
+      border-bottom: 1px dashed rgba(255,255,255,0.5);
       padding-bottom: 6px;
+      text-shadow: 1px 1px 2px #000;
     }
 
     .player-controls {
@@ -132,11 +162,12 @@
       justify-content: center;
       align-items: center;
       box-shadow: 2px 2px 0px #111;
-      transition: transform 0.1s ease;
+      transition: transform 0.15s ease, background 0.2s ease;
     }
 
     .player-btn:hover {
-      transform: translateY(-1px);
+      transform: scale(1.1);
+      background: #fcf8ee;
     }
 
     /* SEZIONE PERSONAGGI */
@@ -146,6 +177,12 @@
       border-radius: 14px;
       padding: 22px 25px;
       box-shadow: 5px 5px 0px #111111;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .characters-section:hover {
+      transform: translateY(-4px);
+      box-shadow: 8px 8px 0px #111111;
     }
 
     .characters-grid {
@@ -160,6 +197,11 @@
       flex-direction: column;
       gap: 6px;
       align-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    .character-card:hover {
+      transform: translateY(-4px) scale(1.05);
     }
 
     .char-img-box {
@@ -195,7 +237,7 @@
       width: 100%;
     }
 
-    /* GRIGLIA PRINCIPALE A 2 COLONNE SU DESKTOP */
+    /* GRIGLIA PRINCIPALE SCRAPBOOK */
     .scrapbook-container {
       display: flex;
       flex-direction: column;
@@ -215,12 +257,12 @@
       }
     }
 
-    /* CONTENITORE A 2 COLONNE CON ALTEZZA DINAMICA */
+    /* CONTENITORE A 2 COLONNE */
     .middle-section-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 25px;
-      align-items: stretch; /* Frequenta la stessa altezza per entrambe le colonne */
+      align-items: stretch;
     }
 
     .left-stack, .right-stack {
@@ -230,12 +272,32 @@
       justify-content: center;
     }
 
-    /* IMMAGINI CON BORDO E OMBRA */
+    /* GALLERIA EXTRA IN BASSO (COMPATTA SU MOBILE, 3-4 COLONNE SU DESKTOP) */
+    .bottom-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 per riga su mobile */
+      gap: 15px;
+      align-items: center;
+    }
+
+    @media screen and (min-width: 768px) {
+      .bottom-gallery-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 per riga su desktop */
+        gap: 20px;
+      }
+    }
+
+    /* IMMAGINI CON BORDO E OMBRA ED EFFETTO HOVER */
     .scrapbook-element {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .scrapbook-element:hover {
+      transform: translateY(-6px) scale(1.03);
     }
 
     .scrapbook-element img {
@@ -247,14 +309,24 @@
       height: auto;
       display: block;
       background: #ffffff;
+      transition: box-shadow 0.3s ease;
     }
 
-    /* IMMAGINI SENZA BORDO (TRASPARENTI) */
+    .scrapbook-element:hover img {
+      box-shadow: 7px 7px 0px #111111;
+    }
+
+    /* IMMAGINI SENZA BORDO (TRASPARENTI) CON EFFETTO HOVER */
     .scrapbook-element-clean {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .scrapbook-element-clean:hover {
+      transform: translateY(-6px) scale(1.03);
     }
 
     .scrapbook-element-clean img {
@@ -266,9 +338,14 @@
       height: auto;
       display: block;
       filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.25));
+      transition: filter 0.3s ease;
     }
 
-    /* REGLA SPECIALE: L'immagine di Howl e Sophie si adatta automaticamente all'altezza dei due elementi a destra */
+    .scrapbook-element-clean:hover img {
+      filter: drop-shadow(4px 6px 8px rgba(0,0,0,0.35));
+    }
+
+    /* L'immagine di Howl e Sophie si adatta automaticamente all'altezza dei due elementi a destra */
     .auto-fit-walk {
       height: 100%;
       display: flex;
@@ -307,11 +384,12 @@
       box-shadow: 4px 4px 0px #111;
       align-self: center;
       margin-top: 15px;
-      transition: transform 0.1s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .back-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 6px 6px 0px #111;
     }
   </style>
 </head>
@@ -331,14 +409,16 @@
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Howl's_Moving_Castle_Bluray_snapshot%20(1).png" alt="Movie Cover" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:30px; border-radius:14px; font-weight:bold;\'>🎬 Movie Cover</div>'">
       </div>
 
-      <!-- 2. Player Musicale stile Cosmic-S -->
+      <!-- 2. Player Musicale stile Cosmic-S con GIF di sfondo -->
       <div class="scrapbook-element rot-right" style="align-self: center;">
         <div class="cosmic-player">
-          <div class="player-screen">♫ Merry-Go-Round of Life</div>
-          <div class="player-controls">
-            <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime -= 5">«</button>
-            <button class="player-btn" onclick="let a=document.getElementById('bg-audio'); a.paused ? a.play() : a.pause();">▶</button>
-            <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime += 5">»</button>
+          <div class="cosmic-player-inner">
+            <div class="player-screen">♫ Merry-Go-Round of Life</div>
+            <div class="player-controls">
+              <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime -= 5">«</button>
+              <button class="player-btn" onclick="let a=document.getElementById('bg-audio'); a.paused ? a.play() : a.pause();">▶</button>
+              <button class="player-btn" onclick="document.getElementById('bg-audio').currentTime += 5">»</button>
+            </div>
           </div>
           <audio id="bg-audio" loop>
             <source src="tuo-file-audio.mp3" type="audio/mpeg">
@@ -354,7 +434,7 @@
       <!-- 4 & 5. SEZIONE SUPERIORE DILATATA E AUTO-GESTITA -->
       <div class="middle-section-grid span-two">
         
-        <!-- Colonna Sinistra: Howl e Sophie (si ridimensiona automaticamente rispetto alla colonna di destra) -->
+        <!-- Colonna Sinistra: Howl e Sophie -->
         <div class="scrapbook-element-clean auto-fit-walk rot-left">
           <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c25882c15c5e1a39091f3d0bed50f3e9%20(3).gif" alt="Walking on Air">
         </div>
@@ -442,25 +522,41 @@
         <p><em>"They say that the best blaze burns brightest when circumstances are at their worst."</em> — A heart's a heavy burden, but the warmth of family and love can overcome any curse. 🔥❤️</p>
       </div>
 
-      <!-- 12. Galleria Immagini Extra Sparse -->
-      <div class="scrapbook-element rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/f162115974ded1bb6e0dca984c2c5b2e.jpg" alt="Extra 1" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 1</div>'">
-      </div>
+      <!-- 12. GALLERIA IN BASSO COMPATTA E RICCA (2 per riga su telefono, 4 per riga su computer) -->
+      <div class="bottom-gallery-grid span-two">
+        
+        <div class="scrapbook-element rot-left">
+          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/f162115974ded1bb6e0dca984c2c5b2e.jpg" alt="Extra 1">
+        </div>
 
-      <div class="scrapbook-element rot-right">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/f020cb9708f3f6ec4d6b64c858311f5f%20(1).jpg" alt="Extra 2" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 2</div>'">
-      </div>
+        <div class="scrapbook-element rot-right">
+          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/f020cb9708f3f6ec4d6b64c858311f5f%20(1).jpg" alt="Extra 2">
+        </div>
 
-      <div class="scrapbook-element rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/e258c289b57f0e44a3e1abbb863c004f.jpg" alt="Extra 3" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 3</div>'">
-      </div>
+        <div class="scrapbook-element rot-left">
+          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/e258c289b57f0e44a3e1abbb863c004f.jpg" alt="Extra 3">
+        </div>
 
-      <div class="scrapbook-element rot-right">
-        <img src="extra-4.gif" alt="Extra 4" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 4</div>'">
-      </div>
+        <div class="scrapbook-element rot-right">
+          <img src="extra-4.gif" alt="Extra 4" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.75rem; font-weight:bold;\'>🖼️ Extra 4</div>'">
+        </div>
 
-      <div class="scrapbook-element rot-left span-two" style="justify-self: center;">
-        <img src="extra-5.gif" alt="Extra 5" class="img-large" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 5</div>'">
+        <div class="scrapbook-element rot-left">
+          <img src="extra-5.gif" alt="Extra 5" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.75rem; font-weight:bold;\'>🖼️ Extra 5</div>'">
+        </div>
+
+        <div class="scrapbook-element rot-right">
+          <img src="extra-6.gif" alt="Extra 6" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.75rem; font-weight:bold;\'>🖼️ Extra 6</div>'">
+        </div>
+
+        <div class="scrapbook-element rot-left">
+          <img src="extra-7.gif" alt="Extra 7" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.75rem; font-weight:bold;\'>🖼️ Extra 7</div>'">
+        </div>
+
+        <div class="scrapbook-element rot-right">
+          <img src="extra-8.gif" alt="Extra 8" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.75rem; font-weight:bold;\'>🖼️ Extra 8</div>'">
+        </div>
+
       </div>
 
     </div>
