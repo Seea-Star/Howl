@@ -44,7 +44,7 @@
     }
 
     .site-wrapper {
-      max-width: 750px;
+      max-width: 900px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -62,81 +62,87 @@
     }
 
     .top-banner img.logo-img {
-      max-width: 420px;
+      max-width: 440px;
       width: 100%;
       height: auto;
       display: block;
       filter: drop-shadow(3px 3px 0px #111111);
     }
 
-    /* IL BLOCCO INTRODUTTIVO DEL DIARIO IN ALTO */
+    /* STILE COMUNE PER I BLOCCHI DI DIARIO */
     .diary-paper {
       background: #fcf8ee;
       border: 3px solid #111111;
       border-radius: 12px;
-      padding: 25px 30px;
-      box-shadow: 6px 6px 0px #111111;
+      padding: 22px 25px;
+      box-shadow: 5px 5px 0px #111111;
       position: relative;
-      transform: rotate(-1deg);
+    }
+
+    .diary-header {
+      font-family: monospace;
+      font-size: 0.75rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
 
     .diary-paper p {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      line-height: 1.8;
+      line-height: 1.7;
       color: #222222;
-      margin-top: 10px;
     }
 
-    /* AREA SCRAPBOOK PER GIF E IMMAGINI SPARSE */
+    /* AREA SCRAPBOOK RESPONSIVE: 
+       Su mobile è una colonna verticale. 
+       Su desktop diventa una griglia mista a più colonne stile collage disordinato ma ordinato! */
     .scrapbook-container {
       display: flex;
       flex-direction: column;
-      gap: 35px;
-      padding: 10px 20px;
+      gap: 25px;
+      padding: 10px;
     }
 
-    .scrapbook-item {
+    @media screen and (min-width: 768px) {
+      .scrapbook-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        align-items: start;
+      }
+      /* Facciamo in modo che alcuni elementi occupino più spazio o si sfalsino */
+      .span-two {
+        grid-column: span 2;
+      }
+    }
+
+    /* STILE IMMAGINI E NOTE SPARSE */
+    .scrapbook-element {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 20px;
     }
 
-    .scrapbook-item.right {
-      flex-direction: row-reverse;
-      text-align: right;
-    }
-
-    .scrapbook-item img {
+    .scrapbook-element img {
       border: 3px solid #111111;
       border-radius: 14px;
       box-shadow: 4px 4px 0px #111111;
-      object-fit: cover;
-      background: #ffffff;
-    }
-
-    /* Dimensioni personalizzate per le immagini sparse */
-    .img-note {
-      max-width: 280px;
-      width: 100%;
       height: auto;
-      transform: rotate(2deg);
-    }
-
-    .gif-large { width: 240px; height: 160px; }
-    .gif-medium { width: 180px; height: 130px; }
-    .gif-small { width: 140px; height: 140px; }
-
-    .scrapbook-caption {
+      display: block;
       background: #ffffff;
-      border: 2px solid #111111;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 0.8rem;
-      box-shadow: 3px 3px 0px #111111;
-      display: inline-block;
     }
+
+    /* Rotazioni e inclinazioni casuali per dare il tocco "scrapbook" */
+    .rot-left { transform: rotate(-2deg); }
+    .rot-right { transform: rotate(2deg); }
+    .rot-none { transform: rotate(0deg); }
+
+    /* Dimensioni personalizzate */
+    .img-note { max-width: 280px; width: 100%; }
+    .img-gif-large { max-width: 340px; width: 100%; }
+    .img-gif-medium { max-width: 260px; width: 100%; }
 
     /* BOTTONE INDIETRO */
     .back-btn {
@@ -165,52 +171,50 @@
 
   <div class="site-wrapper">
 
-    <!-- Logo originale tramite link GitHub -->
+    <!-- Logo ufficiale su GitHub -->
     <header class="top-banner">
       <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
 
-    <!-- Il blocco di testo del diario in alto -->
-    <div class="diary-paper">
-      <div style="font-family: monospace; font-size: 0.8rem; border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">
-        Date: <span>Shrine</span> &nbsp;&nbsp;&nbsp;&nbsp; Page: <span>01</span>
-      </div>
-      <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. I wanted a special corner on my site to collect all my favorite moments of Sophie, Howl, and Calcifer. ✨</p>
-    </div>
-
-    <!-- Area scrapbook con GIF e la tua immagine note-paper tramite link GitHub -->
+    <!-- AREA SCRAPBOOK MISTA (TESTI E IMMAGINI SPARSE) -->
     <div class="scrapbook-container">
       
-      <!-- Prima GIF (usando un link raw coerente su GitHub) -->
-      <div class="scrapbook-item">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-walk.gif" alt="Walking on air" class="gif-large">
-        <div>
-          <span class="scrapbook-caption">Walking on Air ✨</span>
-        </div>
+      <!-- Blocco di Testo 1 (Introduzione principale) -->
+      <div class="diary-paper rot-left span-two">
+        <div class="diary-header">Date: Shrine &nbsp;&nbsp;&nbsp;&nbsp; Page: 01</div>
+        <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. I wanted a special corner on my site to collect all my favorite moments. ✨</p>
       </div>
 
-      <!-- La tua immagine note-paper.png tramite link GitHub -->
-      <div class="scrapbook-item right">
+      <!-- Prima GIF -->
+      <div class="scrapbook-element rot-right">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-walk.gif" alt="Walking on air" class="img-gif-large">
+      </div>
+
+      <!-- La tua immagine del foglio note-paper.png -->
+      <div class="scrapbook-element rot-left">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Decorated note" class="img-note">
-        <div>
-          <span class="scrapbook-caption">Memory Notes 💌</span>
-        </div>
       </div>
 
-      <!-- Seconda GIF tramite link GitHub -->
-      <div class="scrapbook-item">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer cooking" class="gif-medium">
-        <div>
-          <span class="scrapbook-caption">Calcifer's Breakfast 🔥</span>
-        </div>
+      <!-- Blocco di Testo 2 (Informazioni sul film / Studio Ghibli) -->
+      <div class="diary-paper rot-right">
+        <div class="diary-header">Date: Notes &nbsp;&nbsp;&nbsp;&nbsp; Page: 02</div>
+        <p>The film is based on the 1986 novel by British author Diana Wynne Jones. The attention to detail in the moving castle's mechanics and the gorgeous pastel backgrounds make it an absolute timeless piece of art. 🪄</p>
       </div>
 
-      <!-- Terza GIF tramite link GitHub -->
-      <div class="scrapbook-item right">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bhowl-room.gif" alt="Howl room" class="gif-small">
-        <div>
-          <span class="scrapbook-caption">The Magic Room 🔮</span>
-        </div>
+      <!-- GIF Calcifer -->
+      <div class="scrapbook-element rot-left">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer cooking" class="img-gif-medium">
+      </div>
+
+      <!-- Blocco di Testo 3 (Curiosità o citazione) -->
+      <div class="diary-paper rot-left">
+        <div class="diary-header">Date: Quotes &nbsp;&nbsp;&nbsp;&nbsp; Page: 03</div>
+        <p><em>"A heart's a heavy burden."</em> — Calcifer. Even under heavy circumstances, the characters find warmth in each other through simple things like cooking breakfast together in the hearth. 🔥🍳</p>
+      </div>
+
+      <!-- GIF Stanza di Howl (span-two per farla bella grande al centro o a destra) -->
+      <div class="scrapbook-element rot-right span-two" style="justify-content: center;">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-room.gif" alt="Howl room" class="img-gif-large">
       </div>
 
     </div>
