@@ -13,7 +13,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* SFONDO PRINCIPALE: Sfumatura morbida dal blu cielo soft in alto al verde chiaro e delicato in basso */
+    /* SFONDO PRINCIPALE: Sfumatura perfetta con i tuoi codici #002A54 e #C2CC49 */
     body {
       width: 100%;
       min-height: 100vh;
@@ -24,10 +24,10 @@
       display: flex;
       justify-content: center;
       position: relative;
-      background: linear-gradient(to bottom, #3b5a75 0%, #689182 50%, #7da696 100%);
+      background: linear-gradient(to bottom, #002A54 0%, #617b4f 50%, #C2CC49 100%);
     }
 
-    /* GRIGLIA MORBIDA A QUADRETTI: Trasparente e delicata per uno stile cozy e naturale */
+    /* GRIGLIA MORBIDA A QUADRETTI: Linee trasparenti e leggere */
     body::before {
       content: "";
       position: fixed;
@@ -36,8 +36,8 @@
       width: 100%;
       height: 100%;
       background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
       background-size: 20px 20px;
       pointer-events: none;
       z-index: 0;
@@ -48,7 +48,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
       position: relative;
       z-index: 1;
     }
@@ -58,42 +58,93 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 15px 0 10px 0;
+      padding: 10px 0 20px 0;
     }
 
     .top-banner img.logo-img {
-      max-width: 320px;
+      max-width: 340px;
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.25));
+      filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.4));
     }
 
-    /* BOX DEI CONTENUTI IN STILE COSMIC-S */
+    /* BOX UNICO BIANCO SOFT SENZA APPESANTIRE */
     .content-box {
-      background: #ffffff;
-      border: 2px solid #111111;
-      border-radius: 20px;
-      padding: 22px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 3px solid #111111;
+      border-radius: 22px;
+      padding: 24px;
       box-shadow: 4px 4px 0px #111111;
       font-size: 0.95rem;
       font-weight: 600;
       line-height: 1.6;
-      color: #333333;
+      color: #222222;
+      backdrop-filter: blur(5px);
     }
 
     .content-box h2 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
       font-weight: 800;
-      color: #111111;
+      color: #002A54;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* GALLERIA A GRIGLIA PER LE GIF DI HOWL */
+    .gif-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .gif-card {
+      background: #ffffff;
+      border: 2px solid #111111;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 3px 3px 0px #111111;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gif-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gif-card p {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 8px 5px;
+      background: #fcfcfc;
+      border-top: 2px solid #111111;
+      color: #111;
+    }
+
+    .quote-box {
+      background: #111111;
+      color: #ffffff;
+      border: 2px solid #111111;
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+      font-style: italic;
+      box-shadow: 4px 4px 0px rgba(255,255,255,0.8);
+      font-size: 0.95rem;
     }
 
     .back-btn {
       display: inline-block;
       background: #ffffff;
       color: #111111;
-      padding: 12px 20px;
+      padding: 12px 22px;
       border-radius: 14px;
       text-decoration: none;
       font-weight: 800;
@@ -101,12 +152,12 @@
       text-align: center;
       border: 2px solid #111111;
       box-shadow: 4px 4px 0px #111111;
-      transition: transform 0.1s ease, background 0.1s ease;
+      transition: transform 0.1s ease;
     }
 
     .back-btn:hover {
-      background: #fdfdfd;
       transform: translateY(-2px);
+      background: #f8f8f8;
     }
   </style>
 </head>
@@ -114,34 +165,47 @@
 
   <div class="site-wrapper">
 
-    <!-- Header con il logo originale -->
+    <!-- Top Banner con Logo originale fluttuante -->
     <header class="top-banner">
       <img src="howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
 
-    <!-- Contenuti dello Shrine -->
+    <!-- Contenuto Unico dello Shrine -->
     <div style="display: flex; flex-direction: column; gap: 20px;">
       
       <div class="content-box">
-        <h2>✦ About the Movie</h2>
-        <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong> (Hauru no Ugoku Shiro). Directed by Hayao Miyazaki, this masterpiece is full of magic, cozy atmospheres, and unforgettable characters like Sophie, Howl, and Calcifer!</p>
+        <h2>✦ About Howl's Moving Castle</h2>
+        <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong> (Hauru no Ugoku Shiro). Directed by Hayao Miyazaki, this masterpiece is full of magic, cozy atmospheres, and unforgettable moments between Howl, Sophie, and Calcifer!</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div class="content-box" style="text-align: center;">
-          <h2>🔥 Calcifer</h2>
-          <p style="font-size: 0.85rem;">The heart of the castle! Warm, sassy, and totally adorable.</p>
-        </div>
-        <div class="content-box" style="text-align: center;">
-          <h2>✨ Favorite Quote</h2>
-          <p style="font-size: 0.85rem; font-style: italic;">"A heart's a heavy burden."</p>
-        </div>
+      <!-- CITAZIONE SCURA IN STILE RETRO -->
+      <div class="quote-box">
+        "They say that the best blaze burns brightest when circumstances are at their worst." 🔥
       </div>
 
-      <!-- Spazio extra per lo scroll -->
+      <!-- SEZIONE GALLERIA GIF DEDICATA A HOWL -->
       <div class="content-box">
-        <h2>🏰 The Moving Castle</h2>
-        <p>This page will hold all my favorite GIFs, artwork, music recommendations, and memories about Howl and Sophie's story.</p>
+        <h2>✨ Favorite Scenes & Moments</h2>
+        <p style="font-size: 0.85rem; margin-bottom: 12px;">Here are my absolute favorite scenes from the movie:</p>
+        
+        <div class="gif-gallery">
+          <div class="gif-card">
+            <img src="howl-walk.gif" alt="Walking in the air">
+            <p>Walking on Air ✨</p>
+          </div>
+          <div class="gif-card">
+            <img src="calcifer-food.gif" alt="Calcifer cooking breakfast">
+            <p>Calcifer's Breakfast 🍳</p>
+          </div>
+          <div class="gif-card">
+            <img src="howl-room.gif" alt="Howl's magic room">
+            <p>Howl's Magic Room 🔮</p>
+          </div>
+          <div class="gif-card">
+            <img src="howl-castle.gif" alt="The moving castle">
+            <p>The Castle Walking 🏰</p>
+          </div>
+        </div>
       </div>
 
       <div>
