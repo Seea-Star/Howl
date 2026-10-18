@@ -13,7 +13,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* SFONDO PRINCIPALE */
+    /* SFONDO PRINCIPALE CON GRIGLIA CHIARA */
     body {
       width: 100%;
       min-height: 100vh;
@@ -27,7 +27,6 @@
       background: linear-gradient(to bottom, #1a3a5f 0%, #4a7c9d 50%, #87b2c9 100%);
     }
 
-    /* GRIGLIA A QUADRETTI LEGGERA */
     body::before {
       content: "";
       position: fixed;
@@ -48,12 +47,12 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 35px;
       position: relative;
       z-index: 1;
     }
 
-    /* LOGO GRANDE IN ALTO */
+    /* LOGO PRINCIPALE IN ALTO */
     .top-banner {
       display: flex;
       justify-content: center;
@@ -69,7 +68,7 @@
       filter: drop-shadow(3px 3px 0px #111111);
     }
 
-    /* BLOCCHI DI TESTO / DIARIO */
+    /* BLOCCHI DI TESTO STILE DIARIO RETRÒ */
     .diary-paper {
       background: #fcf8ee;
       border: 3px solid #111111;
@@ -111,9 +110,6 @@
       font-size: 0.85rem;
       font-weight: 800;
       color: #1a3a5f;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
     audio {
@@ -133,7 +129,7 @@
 
     .characters-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       gap: 12px;
       margin-top: 15px;
     }
@@ -141,24 +137,27 @@
     .character-card {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
+      align-items: center;
     }
 
     .char-img-box {
       background: #ffffff;
       border: 3px solid #111111;
       border-radius: 12px;
-      height: 120px;
+      width: 100%;
+      max-width: 110px;
+      box-shadow: 3px 3px 0px #111111;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 3px 3px 0px #111111;
-      overflow: hidden;
     }
 
     .char-img-box img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      display: block;
       object-fit: cover;
     }
 
@@ -166,39 +165,20 @@
       background: #ffffff;
       border: 2px solid #111111;
       border-radius: 8px;
-      padding: 5px;
+      padding: 4px 8px;
       text-align: center;
       font-size: 0.75rem;
       font-weight: 800;
       color: #111;
       box-shadow: 2px 2px 0px #111;
-    }
-
-    /* TILE UNIFORMI PER COPERTINA E IMMAGINI EXTRA (BORDO SOLIDO) */
-    .image-card-box {
-      background: #ffffff;
-      border: 3px solid #111111;
-      border-radius: 14px;
-      min-height: 180px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 4px 4px 0px #111111;
-      overflow: hidden;
-    }
-
-    .image-card-box img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
     }
 
-    /* AREA SCRAPBOOK RESPONSIVE A GRIGLIA */
+    /* GRIGLIA SCRAPBOOK RESPONSIVE SUL DESKTOP */
     .scrapbook-container {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 30px;
       padding: 10px;
     }
 
@@ -206,7 +186,7 @@
       .scrapbook-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 32px;
         align-items: start;
       }
       .span-two {
@@ -214,27 +194,34 @@
       }
     }
 
+    /* TUTTE LE IMMAGINI ED ELEMENTI SI ADATTANO IN MODO NATURALE */
     .scrapbook-element {
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
     }
 
     .scrapbook-element img {
       border: 3px solid #111111;
       border-radius: 14px;
       box-shadow: 4px 4px 0px #111111;
-      height: auto;
+      width: auto;
+      max-width: 100%;
+      height: auto; /* Mantiene sempre le proporzioni dell'immagine */
       display: block;
       background: #ffffff;
     }
 
+    /* Dimensioni flessibili per variare le foto */
+    .img-small { max-width: 180px; }
+    .img-medium { max-width: 280px; }
+    .img-large { max-width: 380px; }
+    .img-full { max-width: 100%; }
+
+    /* Rotazioni scrapbook */
     .rot-left { transform: rotate(-2deg); }
     .rot-right { transform: rotate(2deg); }
-
-    .img-note { max-width: 280px; width: 100%; }
-    .img-gif-large { max-width: 340px; width: 100%; }
-    .img-gif-medium { max-width: 260px; width: 100%; }
 
     /* BOTTONE INDIETRO */
     .back-btn {
@@ -263,20 +250,19 @@
 
   <div class="site-wrapper">
 
-    <!-- Logo ufficiale -->
+    <!-- Logo ufficiale principale -->
     <header class="top-banner">
       <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
 
-    <!-- AREA PRINCIPALE -->
     <div class="scrapbook-container">
       
-      <!-- Copertina del film in alto (con bordo solido uniforme) -->
-      <div class="image-card-box rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Howl's_Moving_Castle_Bluray_snapshot%20(1).png" alt="Howl's Moving Castle Cover" onerror="this.parentElement.innerHTML='<span style=\'font-weight:bold; font-size:0.85rem;\'>🎬 Cover Movie</span>'">
+      <!-- 1. Copertina del Film -->
+      <div class="scrapbook-element rot-left">
+        <img src="howl-cover.png" alt="Movie Cover" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:30px; border-radius:14px; font-weight:bold;\'>🎬 Movie Cover</div>'">
       </div>
 
-      <!-- Player musicale accanto alla copertina -->
+      <!-- 2. Player Musicale -->
       <div class="music-player-box rot-right">
         <div class="music-title">🎵 Now Playing: Merry-Go-Round of Life</div>
         <audio controls>
@@ -285,49 +271,52 @@
         </audio>
       </div>
 
-      <!-- Blocco Introduzione -->
+      <!-- 3. Primo blocco di testo: Benvenuto e Introduzione -->
       <div class="diary-paper rot-left span-two">
         <div class="diary-header">Date: Shrine &nbsp;&nbsp;&nbsp;&nbsp; Page: 01</div>
         <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. ✨</p>
       </div>
 
-      <!-- SEZIONE PERSONAGGI (7 Personaggi Iconici) -->
+      <!-- 4. Prima GIF (Walking on Air) -->
+      <div class="scrapbook-element rot-right">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-walk.gif" alt="Walking on Air" class="img-large">
+      </div>
+
+      <!-- 5. Logo Giapponese / Logo Studio Ghibli -->
+      <div class="scrapbook-element rot-left">
+        <img src="howl-japanese-logo.png" alt="Studio Ghibli Logo" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:20px; border-radius:14px; font-weight:bold;\'>🌿 Studio Ghibli / Japanese Logo</div>'">
+      </div>
+
+      <!-- 6. SEZIONE PERSONAGGI (Intervallata con lo spazio sopra) -->
       <div class="characters-section rot-right span-two">
         <div class="diary-header">Date: Characters &nbsp;&nbsp;&nbsp;&nbsp; Page: 02</div>
         <p style="font-size: 0.9rem; font-weight: 700; color: #222;">Main Characters:</p>
         
         <div class="characters-grid">
-          <!-- Sophie -->
           <div class="character-card">
             <div class="char-img-box"><img src="char-sophie.png" alt="Sophie" onerror="this.style.display='none';this.parentElement.innerText='Sophie'"></div>
             <div class="char-name-box">Sophie</div>
           </div>
-          <!-- Howl -->
           <div class="character-card">
             <div class="char-img-box"><img src="char-howl.png" alt="Howl" onerror="this.style.display='none';this.parentElement.innerText='Howl'"></div>
             <div class="char-name-box">Howl</div>
           </div>
-          <!-- Calcifer -->
           <div class="character-card">
             <div class="char-img-box"><img src="char-calcifer.png" alt="Calcifer" onerror="this.style.display='none';this.parentElement.innerText='Calcifer'"></div>
             <div class="char-name-box">Calcifer</div>
           </div>
-          <!-- Markl -->
           <div class="character-card">
             <div class="char-img-box"><img src="char-markl.png" alt="Markl" onerror="this.style.display='none';this.parentElement.innerText='Markl'"></div>
             <div class="char-name-box">Markl</div>
           </div>
-          <!-- Witch of the Waste -->
           <div class="character-card">
-            <div class="char-img-box"><img src="char-witch.png" alt="Witch of Waste" onerror="this.style.display='none';this.parentElement.innerText='Witch'"></div>
+            <div class="char-img-box"><img src="char-witch.png" alt="Witch" onerror="this.style.display='none';this.parentElement.innerText='Witch'"></div>
             <div class="char-name-box">Witch</div>
           </div>
-          <!-- Turnip Head -->
           <div class="character-card">
-            <div class="char-img-box"><img src="char-turnip.png" alt="Turnip Head" onerror="this.style.display='none';this.parentElement.innerText='Turnip'"></div>
-            <div class="char-name-box">Turnip Head</div>
+            <div class="char-img-box"><img src="char-turnip.png" alt="Turnip" onerror="this.style.display='none';this.parentElement.innerText='Turnip'"></div>
+            <div class="char-name-box">Turnip</div>
           </div>
-          <!-- Heen -->
           <div class="character-card">
             <div class="char-img-box"><img src="char-heen.png" alt="Heen" onerror="this.style.display='none';this.parentElement.innerText='Heen'"></div>
             <div class="char-name-box">Heen</div>
@@ -335,52 +324,57 @@
         </div>
       </div>
 
-      <!-- GIF Principali e Nota -->
+      <!-- 7. Il tuo foglio di diario modificato su Ibis Paint -->
       <div class="scrapbook-element rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-walk.gif" alt="Walking on air" class="img-gif-large">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Handwritten Note" class="img-medium">
       </div>
 
+      <!-- 8. GIF Calcifer -->
       <div class="scrapbook-element rot-right">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Decorated note" class="img-note">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer Breakfast" class="img-medium">
       </div>
 
-      <!-- SEZIONE GALLERIA EXTRA IN BASSO (5 Immagini) -->
+      <!-- 9. Blocco di testo: Info sull'autore Hayao Miyazaki e sul libro -->
       <div class="diary-paper rot-left span-two">
-        <div class="diary-header">Date: Extra Gallery &nbsp;&nbsp;&nbsp;&nbsp; Page: 03</div>
-        <p>A cozy collection of extra frames, memories, and moments from the movie:</p>
+        <div class="diary-header">Date: Author & Info &nbsp;&nbsp;&nbsp;&nbsp; Page: 03</div>
+        <p>Directed by legendary filmmaker <strong>Hayao Miyazaki</strong> and produced by Studio Ghibli in 2004, the movie is based on the 1986 fantasy novel by British author <strong>Diana Wynne Jones</strong>. The combination of hand-drawn European architecture and magical storytelling makes it unforgettable. 🏰✨</p>
       </div>
 
+      <!-- 10. Immagine/Foto di Hayao Miyazaki -->
+      <div class="scrapbook-element rot-right">
+        <img src="miyazaki.png" alt="Hayao Miyazaki" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:20px; border-radius:14px; font-weight:bold;\'>🎨 Hayao Miyazaki Photo</div>'">
+      </div>
+
+      <!-- 11. GIF Stanza di Howl -->
       <div class="scrapbook-element rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer cooking" class="img-gif-medium">
+        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-room.gif" alt="Howl's Room" class="img-large">
+      </div>
+
+      <!-- 12. Blocco di testo: Curiosità e citazioni -->
+      <div class="diary-paper rot-right span-two">
+        <div class="diary-header">Date: Quotes & Notes &nbsp;&nbsp;&nbsp;&nbsp; Page: 04</div>
+        <p><em>"They say that the best blaze burns brightest when circumstances are at their worst."</em> — A heart's a heavy burden, but the warmth of family and love can overcome any curse. 🔥❤️</p>
+      </div>
+
+      <!-- 13. Galleria Immagini Extra Sparse in fondo -->
+      <div class="scrapbook-element rot-left">
+        <img src="extra-1.gif" alt="Extra 1" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 1</div>'">
       </div>
 
       <div class="scrapbook-element rot-right">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-room.gif" alt="Howl room" class="img-gif-large">
+        <img src="extra-2.gif" alt="Extra 2" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 2</div>'">
       </div>
 
-      <!-- Box Extra 1 -->
-      <div class="image-card-box rot-left">
-        <img src="extra-1.gif" alt="Extra 1" onerror="this.parentElement.innerHTML='<span style=\'font-weight:bold; font-size:0.8rem;\'>🖼️ Extra Image 1</span>'">
+      <div class="scrapbook-element rot-left">
+        <img src="extra-3.gif" alt="Extra 3" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 3</div>'">
       </div>
 
-      <!-- Box Extra 2 -->
-      <div class="image-card-box rot-right">
-        <img src="extra-2.gif" alt="Extra 2" onerror="this.parentElement.innerHTML='<span style=\'font-weight:bold; font-size:0.8rem;\'>🖼️ Extra Image 2</span>'">
+      <div class="scrapbook-element rot-right">
+        <img src="extra-4.gif" alt="Extra 4" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 4</div>'">
       </div>
 
-      <!-- Box Extra 3 -->
-      <div class="image-card-box rot-left">
-        <img src="extra-3.gif" alt="Extra 3" onerror="this.parentElement.innerHTML='<span style=\'font-weight:bold; font-size:0.8rem;\'>🖼️ Extra Image 3</span>'">
-      </div>
-
-      <!-- Box Extra 4 -->
-      <div class="image-card-box rot-right">
-        <img src="extra-4.gif" alt="Extra 4" onerror="this.parentElement.innerHTML='<span style=\'font-weight:bold; font-size:0.8rem;\'>🖼️ Extra Image 4</span>'">
-      </div>
-
-      <!-- Box Extra 5 (Centrato a fondo pagina) -->
-      <div class="image-card-box rot-left span-two" style="justify-self: center; max-width: 380px; width: 100%;">
-        <img src="extra-5.gif" alt="Extra 5" onerror="this.parentElement.innerHTML='<span style=\'font-weight:bold; font-size:0.8rem;\'>🖼️ Extra Image 5</span>'">
+      <div class="scrapbook-element rot-left span-two" style="justify-self: center;">
+        <img src="extra-5.gif" alt="Extra 5" class="img-large" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 5 (Grande)</div>'">
       </div>
 
     </div>
