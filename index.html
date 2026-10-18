@@ -215,7 +215,7 @@
       }
     }
 
-    /* CONTENITORE PER AFFIANCARE CORRETTAMENTE CALCIFER E L'IMMAGINE EXTRA AL FOGLIO NOTE */
+    /* CONTENITORE PER AFFIANCARE CORRETTAMENTE GLI ELEMENTI A 2 COLONNE */
     .middle-section-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -223,7 +223,7 @@
       align-items: start;
     }
 
-    .left-stack {
+    .left-stack, .right-stack {
       display: flex;
       flex-direction: column;
       gap: 25px;
@@ -270,7 +270,7 @@
     /* DIMENSIONI BILANCIATE ED EQUILIBRATE */
     .img-small { max-width: 160px; }
     .img-medium { max-width: 240px; }
-    .img-large { max-width: 290px; } /* Ridotta per evitare che sia enorme */
+    .img-large { max-width: 290px; }
 
     /* Rotazioni scrapbook */
     .rot-left { transform: rotate(-2deg); }
@@ -335,14 +335,24 @@
         <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. ✨</p>
       </div>
 
-      <!-- 4. Prima GIF (Walking on Air) - Bilanciata -->
-      <div class="scrapbook-element-clean rot-right">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c25882c15c5e1a39091f3d0bed50f3e9%20(3).gif" alt="Walking on Air" class="img-large">
-      </div>
+      <!-- 4 & 5. SEZIONE SUPERIORE AFFIANCATA (Howl e Sophie a sinistra | Logo Rosso + Nuova GIF a destra) -->
+      <div class="middle-section-grid span-two">
+        
+        <!-- Colonna Sinistra: GIF Howl e Sophie (Walking on Air) -->
+        <div class="scrapbook-element-clean rot-left" style="justify-content: center;">
+          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c25882c15c5e1a39091f3d0bed50f3e9%20(3).gif" alt="Walking on Air" class="img-large">
+        </div>
 
-      <!-- 5. Logo Giapponese -->
-      <div class="scrapbook-element-clean rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Hauru_no_Ugoku_Shiro.gif" alt="Studio Ghibli Logo" class="img-medium">
+        <!-- Colonna Destra: Logo Giapponese + Nuova GIF trasparente sotto -->
+        <div class="right-stack">
+          <div class="scrapbook-element-clean rot-right">
+            <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Hauru_no_Ugoku_Shiro.gif" alt="Studio Ghibli Logo" class="img-medium">
+          </div>
+          <div class="scrapbook-element-clean rot-left">
+            <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/13237dc70ed189af84385fdc866acee1.gif" alt="Extra Transparent GIF" class="img-medium">
+          </div>
+        </div>
+
       </div>
 
       <!-- 6. SEZIONE PERSONAGGI -->
