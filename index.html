@@ -13,7 +13,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* SFONDO PRINCIPALE: Dal blu notte in alto all'azzurro cielo luminoso in basso */
+    /* SFONDO PRINCIPALE: Sfumatura morbida dal blu notte all'azzurro cielo */
     body {
       width: 100%;
       min-height: 100vh;
@@ -53,7 +53,7 @@
       z-index: 1;
     }
 
-    /* LOGO GRANDE E PULITO IN ALTO */
+    /* LOGO GRANDE IN ALTO */
     .top-banner {
       display: flex;
       justify-content: center;
@@ -69,59 +69,52 @@
       filter: drop-shadow(3px 3px 0px #111111);
     }
 
-    /* FOGLIO DI DIARIO (Usa l'immagine della carta da lettere) */
-    .diary-paper {
-      background: #fcf8ee;
-      border: 3px solid #111111;
-      border-radius: 12px;
-      padding: 25px 30px;
-      box-shadow: 6px 6px 0px #111111;
-      position: relative;
-      transform: rotate(-1deg);
-    }
-
-    .diary-paper p {
-      font-size: 0.95rem;
-      font-weight: 700;
-      line-height: 1.8;
-      color: #222222;
-      margin-top: 10px;
-    }
-
-    /* CONTENITORE LIBERO PER LE GIF SPARSE */
-    .scrapbook-area {
+    /* AREA SCRAPBOOK / IMMAGINI E GIF SPARSE */
+    .scrapbook-container {
       display: flex;
       flex-direction: column;
-      gap: 25px;
-      position: relative;
-      padding: 10px;
+      gap: 35px;
+      padding: 10px 20px;
     }
 
-    .gif-item {
+    /* Stile per ogni elemento sparso (GIF o Foglio di diario) */
+    .scrapbook-item {
       display: flex;
       align-items: center;
       gap: 20px;
     }
 
-    .gif-item.right {
+    .scrapbook-item.right {
       flex-direction: row-reverse;
       text-align: right;
     }
 
-    .gif-item img {
+    .scrapbook-item.center {
+      justify-content: center;
+    }
+
+    /* Immagini con bordo e ombra in stile sticker/polaroid */
+    .scrapbook-item img {
       border: 3px solid #111111;
       border-radius: 14px;
       box-shadow: 4px 4px 0px #111111;
       object-fit: cover;
-      background: #fff;
+      background: #ffffff;
     }
 
-    /* GIF di dimensioni diverse come volevi tu */
-    .gif-large { width: 240px; height: 160px; }
-    .gif-medium { width: 180px; height: 130px; }
-    .gif-small { width: 130px; height: 130px; }
+    /* Dimensioni personalizzabili per le tue GIF e immagini */
+    .img-diary {
+      max-width: 380px;
+      width: 100%;
+      height: auto;
+      transform: rotate(-1deg);
+    }
 
-    .gif-caption {
+    .img-large { width: 240px; height: 160px; }
+    .img-medium { width: 180px; height: 130px; }
+    .img-small { width: 140px; height: 140px; }
+
+    .scrapbook-caption {
       background: #ffffff;
       border: 2px solid #111111;
       padding: 8px 14px;
@@ -146,7 +139,7 @@
       border: 3px solid #111;
       box-shadow: 4px 4px 0px #111;
       align-self: center;
-      margin-top: 10px;
+      margin-top: 15px;
       transition: transform 0.1s ease;
     }
 
@@ -159,40 +152,40 @@
 
   <div class="site-wrapper">
 
-    <!-- Logo originale grande -->
+    <!-- Logo originale grande in alto -->
     <header class="top-banner">
       <img src="howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
 
-    <!-- Foglio di diario/lettera con il tuo messaggio -->
-    <div class="diary-paper">
-      <div style="font-family: monospace; font-size: 0.8rem; border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">
-        Date: <span>Shrine</span> &nbsp;&nbsp;&nbsp;&nbsp; Page: <span>01</span>
-      </div>
-      <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. I wanted a special corner on my site to collect all my favorite moments of Sophie, Howl, and Calcifer. ✨</p>
-    </div>
-
-    <!-- Area scrapbook libera con GIF di dimensioni diverse e disposte a mano -->
-    <div class="scrapbook-area">
+    <!-- Area dei contenuti sparsi in stile scrapbook -->
+    <div class="scrapbook-container">
       
-      <div class="gif-item">
-        <img src="howl-walk.gif" alt="Walking on air" class="gif-large">
+      <!-- Il foglio di diario (che editerai con i disegnini) -->
+      <div class="scrapbook-item center">
+        <img src="note-paper.png" alt="Note Paper" class="img-diary">
+      </div>
+
+      <!-- Prima GIF sparsa -->
+      <div class="scrapbook-item">
+        <img src="howl-walk.gif" alt="Walking on air" class="img-large">
         <div>
-          <span class="gif-caption">Walking on Air ✨</span>
+          <span class="scrapbook-caption">Walking on Air ✨</span>
         </div>
       </div>
 
-      <div class="gif-item right">
-        <img src="calcifer-food.gif" alt="Calcifer cooking" class="gif-medium">
+      <!-- Seconda GIF sparsa (posizionata a destra) -->
+      <div class="scrapbook-item right">
+        <img src="calcifer-food.gif" alt="Calcifer cooking" class="img-medium">
         <div>
-          <span class="gif-caption">Calcifer's Breakfast 🔥</span>
+          <span class="scrapbook-caption">Calcifer's Breakfast 🔥</span>
         </div>
       </div>
 
-      <div class="gif-item">
-        <img src="howl-room.gif" alt="Howl room" class="gif-small">
+      <!-- Terza GIF sparsa -->
+      <div class="scrapbook-item">
+        <img src="howl-room.gif" alt="Howl room" class="img-small">
         <div>
-          <span class="gif-caption">The Magic Room 🔮</span>
+          <span class="scrapbook-caption">The Magic Room 🔮</span>
         </div>
       </div>
 
