@@ -215,18 +215,19 @@
       }
     }
 
-    /* CONTENITORE PER AFFIANCARE CORRETTAMENTE GLI ELEMENTI A 2 COLONNE */
+    /* CONTENITORE A 2 COLONNE CON ALTEZZA DINAMICA */
     .middle-section-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 25px;
-      align-items: start;
+      align-items: stretch; /* Frequenta la stessa altezza per entrambe le colonne */
     }
 
     .left-stack, .right-stack {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 20px;
+      justify-content: center;
     }
 
     /* IMMAGINI CON BORDO E OMBRA */
@@ -267,13 +268,25 @@
       filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.25));
     }
 
-    /* DIMENSIONI BILANCIATE ED EQUILIBRATE */
+    /* REGLA SPECIALE: L'immagine di Howl e Sophie si adatta automaticamente all'altezza dei due elementi a destra */
+    .auto-fit-walk {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auto-fit-walk img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* DIMENSIONI DI BASE */
     .img-small { max-width: 160px; }
     .img-medium { max-width: 240px; }
     .img-large { max-width: 290px; }
-    
-    /* CLASSE PER RENDERE PIÙ PICCOLA LA GIF TRASPARENTE SOTTO IL LOGO */
-    .img-small-clean { max-width: 150px !important; }
+    .img-small-clean { max-width: 140px !important; }
 
     /* Rotazioni scrapbook */
     .rot-left { transform: rotate(-2deg); }
@@ -338,15 +351,15 @@
         <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. ✨</p>
       </div>
 
-      <!-- 4 & 5. SEZIONE SUPERIORE AFFIANCATA (Howl e Sophie a sinistra | Logo Rosso + Nuova GIF RIMPICCIOLITA a destra) -->
+      <!-- 4 & 5. SEZIONE SUPERIORE DILATATA E AUTO-GESTITA -->
       <div class="middle-section-grid span-two">
         
-        <!-- Colonna Sinistra: GIF Howl e Sophie (Walking on Air) -->
-        <div class="scrapbook-element-clean rot-left" style="justify-content: center;">
-          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c25882c15c5e1a39091f3d0bed50f3e9%20(3).gif" alt="Walking on Air" class="img-large">
+        <!-- Colonna Sinistra: Howl e Sophie (si ridimensiona automaticamente rispetto alla colonna di destra) -->
+        <div class="scrapbook-element-clean auto-fit-walk rot-left">
+          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c25882c15c5e1a39091f3d0bed50f3e9%20(3).gif" alt="Walking on Air">
         </div>
 
-        <!-- Colonna Destra: Logo Giapponese + Nuova GIF trasparente più piccola sotto -->
+        <!-- Colonna Destra: Logo Giapponese + Nuova GIF trasparente sotto -->
         <div class="right-stack">
           <div class="scrapbook-element-clean rot-right">
             <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/Hauru_no_Ugoku_Shiro.gif" alt="Studio Ghibli Logo" class="img-medium">
@@ -394,10 +407,10 @@
         </div>
       </div>
 
-      <!-- 7 & 8. SEZIONE CENTRALE AFFIANCATA (Calcifer + Immagine Extra a sinistra | Foglio Note a destra) -->
+      <!-- 7 & 8. SEZIONE CENTRALE AFFIANCATA -->
       <div class="middle-section-grid span-two">
         
-        <!-- Colonna Sinistra (Calcifer + Immagine Extra una sopra l'altra) -->
+        <!-- Colonna Sinistra (Calcifer + Immagine Extra) -->
         <div class="left-stack">
           <div class="scrapbook-element rot-left">
             <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer Breakfast" class="img-medium">
@@ -407,14 +420,14 @@
           </div>
         </div>
 
-        <!-- Colonna Destra (Foglio di note pulito e centrato) -->
+        <!-- Colonna Destra (Foglio di note) -->
         <div class="scrapbook-element-clean rot-right" style="justify-content: center;">
           <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Handwritten Note" class="img-medium">
         </div>
 
       </div>
 
-      <!-- 9. Secondo blocco di testo: Info autore -->
+      <!-- 9. Secondo blocco di testo -->
       <div class="diary-paper rot-left span-two">
         <p>Directed by legendary filmmaker <strong>Hayao Miyazaki</strong> and produced by Studio Ghibli in 2004, the movie is based on the 1986 fantasy novel by British author <strong>Diana Wynne Jones</strong>. The combination of hand-drawn European architecture and magical storytelling makes it unforgettable. 🏰✨</p>
       </div>
@@ -424,12 +437,12 @@
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bhowl-room.gif" alt="Howl's Room" class="img-large">
       </div>
 
-      <!-- 11. Terzo blocco di testo: Citazioni -->
+      <!-- 11. Terzo blocco di testo -->
       <div class="diary-paper rot-left span-two">
         <p><em>"They say that the best blaze burns brightest when circumstances are at their worst."</em> — A heart's a heavy burden, but the warmth of family and love can overcome any curse. 🔥❤️</p>
       </div>
 
-      <!-- 12. Galleria Immagini Extra Sparse in fondo -->
+      <!-- 12. Galleria Immagini Extra Sparse -->
       <div class="scrapbook-element rot-left">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/f162115974ded1bb6e0dca984c2c5b2e.jpg" alt="Extra 1" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 1</div>'">
       </div>
