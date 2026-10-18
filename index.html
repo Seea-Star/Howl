@@ -9,28 +9,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* SFONDO PRINCIPALE: Sfumatura morbida dal blu soft in alto al verde soft in basso lungo tutta la pagina */
     body {
-      /* Sfumatura soft in sottofondo */
-      background-color: #2b4c6f;
-      /* Griglia a quadretti con linee BIANCHE nitide + sfumatura blu/verde */
-      background-image: 
-        linear-gradient(#ffffff 1px, transparent 1px),
-        linear-gradient(90deg, #ffffff 1px, transparent 1px),
-        linear-gradient(to bottom, #2b4c6f 0%, #3d5e50 50%, #2f4c3c 100%);
-      background-size: 20px 20px, 20px 20px, 100% 100%;
-      background-attachment: fixed;
-      color: #111111;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 15px;
       font-family: 'Quicksand', sans-serif;
-      padding: 30px 10px;
+      color: #111111;
       display: flex;
       justify-content: center;
       position: relative;
-      min-height: 100vh;
+      background: linear-gradient(to bottom, #3b5a75 0%, #4a6b5d 50%, #2f4c3c 100%);
+    }
+
+    /* GRIGLIA MORBIDA A QUADRETTI: Creata sopra lo sfondo con opacità soffice */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .site-wrapper {
@@ -38,30 +48,33 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Logo fluttuante senza box */
+    /* LOGO UFFICIALE FLUTTUANTE SENZA BOX SCURO */
     .top-banner {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px 0;
+      padding: 15px 0 10px 0;
     }
 
     .top-banner img.logo-img {
-      max-width: 340px;
+      max-width: 320px;
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(3px 3px 0px #111111);
+      filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.25));
     }
 
+    /* BOX DEI CONTENUTI IN STILE COSMIC-S */
     .content-box {
       background: #ffffff;
       border: 2px solid #111111;
       border-radius: 20px;
-      padding: 25px;
+      padding: 22px;
       box-shadow: 4px 4px 0px #111111;
       font-size: 0.95rem;
       font-weight: 600;
@@ -70,7 +83,7 @@
     }
 
     .content-box h2 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       margin-bottom: 10px;
       font-weight: 800;
       color: #111111;
@@ -87,13 +100,13 @@
       font-size: 0.85rem;
       text-align: center;
       border: 2px solid #111111;
-      box-shadow: 3px 3px 0px #111111;
+      box-shadow: 4px 4px 0px #111111;
       transition: transform 0.1s ease, background 0.1s ease;
     }
 
     .back-btn:hover {
       background: #fdfdfd;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -101,20 +114,20 @@
 
   <div class="site-wrapper">
 
-    <!-- Header con solo il logo originale -->
+    <!-- Header con il logo originale -->
     <header class="top-banner">
       <img src="howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
 
-    <!-- Contenuto principale dello Shrine -->
-    <div style="display: flex; flex-direction: column; gap: 16px;">
+    <!-- Contenuti dello Shrine -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
       
       <div class="content-box">
         <h2>✦ About the Movie</h2>
         <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong> (Hauru no Ugoku Shiro). Directed by Hayao Miyazaki, this masterpiece is full of magic, cozy atmospheres, and unforgettable characters like Sophie, Howl, and Calcifer!</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
         <div class="content-box" style="text-align: center;">
           <h2>🔥 Calcifer</h2>
           <p style="font-size: 0.85rem;">The heart of the castle! Warm, sassy, and totally adorable.</p>
@@ -123,6 +136,12 @@
           <h2>✨ Favorite Quote</h2>
           <p style="font-size: 0.85rem; font-style: italic;">"A heart's a heavy burden."</p>
         </div>
+      </div>
+
+      <!-- Spazio extra così puoi scrollare e vedere la sfumatura che cambia da blu a verde -->
+      <div class="content-box">
+        <h2>🏰 The Moving Castle</h2>
+        <p>This page will hold all my favorite GIFs, artwork, music recommendations, and memories about Howl and Sophie's story.</p>
       </div>
 
       <div>
