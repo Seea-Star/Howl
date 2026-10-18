@@ -47,7 +47,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 35px;
+      gap: 30px;
       position: relative;
       z-index: 1;
     }
@@ -97,7 +97,8 @@
       flex-direction: column;
       gap: 10px;
       width: 100%;
-      max-width: 320px;
+      max-width: 300px;
+      margin: 0 auto;
     }
 
     .player-screen {
@@ -194,7 +195,7 @@
       width: 100%;
     }
 
-    /* GRIGLIA SCRAPBOOK RESPONSIVE SUL DESKTOP */
+    /* GRIGLIA PRINCIPALE A 2 COLONNE SU DESKTOP */
     .scrapbook-container {
       display: flex;
       flex-direction: column;
@@ -212,6 +213,20 @@
       .span-two {
         grid-column: span 2;
       }
+    }
+
+    /* CONTENITORE PER AFFIANCARE CORRETTAMENTE CALCIFER E L'IMMAGINE EXTRA AL FOGLIO NOTE */
+    .middle-section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: start;
+    }
+
+    .left-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
     }
 
     /* IMMAGINI CON BORDO E OMBRA */
@@ -233,7 +248,7 @@
       background: #ffffff;
     }
 
-    /* IMMAGINI SENZA BORDO (TRASPARENTI COME IL LOGO GIAPPONESE, HOWL-WALK E FOGLIO) */
+    /* IMMAGINI SENZA BORDO (TRASPARENTI) */
     .scrapbook-element-clean {
       display: flex;
       justify-content: center;
@@ -252,10 +267,10 @@
       filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.25));
     }
 
-    /* Dimensioni flessibili */
-    .img-small { max-width: 180px; }
-    .img-medium { max-width: 280px; }
-    .img-large { max-width: 380px; }
+    /* DIMENSIONI BILANCIATE ED EQUILIBRATE */
+    .img-small { max-width: 160px; }
+    .img-medium { max-width: 240px; }
+    .img-large { max-width: 290px; } /* Ridotta per evitare che sia enorme */
 
     /* Rotazioni scrapbook */
     .rot-left { transform: rotate(-2deg); }
@@ -301,7 +316,7 @@
       </div>
 
       <!-- 2. Player Musicale stile Cosmic-S -->
-      <div class="scrapbook-element rot-right" style="justify-content: flex-end;">
+      <div class="scrapbook-element rot-right" style="align-self: center;">
         <div class="cosmic-player">
           <div class="player-screen">♫ Merry-Go-Round of Life</div>
           <div class="player-controls">
@@ -320,7 +335,7 @@
         <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. ✨</p>
       </div>
 
-      <!-- 4. Prima GIF (Walking on Air) - CLEAN -->
+      <!-- 4. Prima GIF (Walking on Air) - Bilanciata -->
       <div class="scrapbook-element-clean rot-right">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/c25882c15c5e1a39091f3d0bed50f3e9%20(3).gif" alt="Walking on Air" class="img-large">
       </div>
@@ -366,37 +381,42 @@
         </div>
       </div>
 
-      <!-- 7. COLONNA SINISTRA: GIF Calcifer -->
-      <div class="scrapbook-element rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer Breakfast" class="img-medium">
+      <!-- 7 & 8. SEZIONE CENTRALE AFFIANCATA (Calcifer + Immagine Extra a sinistra | Foglio Note a destra) -->
+      <div class="middle-section-grid span-two">
+        
+        <!-- Colonna Sinistra (Calcifer + Immagine Extra una sopra l'altra) -->
+        <div class="left-stack">
+          <div class="scrapbook-element rot-left">
+            <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bcalcifer-food.gif" alt="Calcifer Breakfast" class="img-medium">
+          </div>
+          <div class="scrapbook-element rot-right">
+            <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/extra-new.jpg" alt="Extra Image" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:25px; border-radius:14px; font-weight:bold;\'>🖼️ New Extra Image</div>'">
+          </div>
+        </div>
+
+        <!-- Colonna Destra (Foglio di note pulito e centrato) -->
+        <div class="scrapbook-element-clean rot-right" style="justify-content: center;">
+          <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Handwritten Note" class="img-medium">
+        </div>
+
       </div>
 
-      <!-- 8. COLONNA DESTRA: Foglio di diario note-paper.png -->
-      <div class="scrapbook-element-clean rot-right">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/%E2%80%8Bnote-paper.png" alt="Handwritten Note" class="img-medium">
-      </div>
-
-      <!-- 9. NUOVA IMMAGINE EXTRA SOTTO CALCIFER (Esattamente sotto la colonna di sinistra!) -->
-      <div class="scrapbook-element rot-left">
-        <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/extra-new.jpg" alt="Extra Image" class="img-medium" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:25px; border-radius:14px; font-weight:bold;\'>🖼️ New Extra Image</div>'">
-      </div>
-
-      <!-- 10. Secondo blocco di testo: Info autore -->
-      <div class="diary-paper rot-right span-two">
+      <!-- 9. Secondo blocco di testo: Info autore -->
+      <div class="diary-paper rot-left span-two">
         <p>Directed by legendary filmmaker <strong>Hayao Miyazaki</strong> and produced by Studio Ghibli in 2004, the movie is based on the 1986 fantasy novel by British author <strong>Diana Wynne Jones</strong>. The combination of hand-drawn European architecture and magical storytelling makes it unforgettable. 🏰✨</p>
       </div>
 
-      <!-- 11. GIF Stanza di Howl -->
-      <div class="scrapbook-element rot-left span-two">
+      <!-- 10. GIF Stanza di Howl -->
+      <div class="scrapbook-element rot-right span-two" style="justify-content: center;">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/howl-room.gif" alt="Howl's Room" class="img-large">
       </div>
 
-      <!-- 12. Terzo blocco di testo: Citazioni -->
-      <div class="diary-paper rot-right span-two">
+      <!-- 11. Terzo blocco di testo: Citazioni -->
+      <div class="diary-paper rot-left span-two">
         <p><em>"They say that the best blaze burns brightest when circumstances are at their worst."</em> — A heart's a heavy burden, but the warmth of family and love can overcome any curse. 🔥❤️</p>
       </div>
 
-      <!-- 13. Galleria Immagini Extra Sparse in fondo -->
+      <!-- 12. Galleria Immagini Extra Sparse in fondo -->
       <div class="scrapbook-element rot-left">
         <img src="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/f162115974ded1bb6e0dca984c2c5b2e.jpg" alt="Extra 1" class="img-small" onerror="this.parentElement.innerHTML='<div style=\'background:#fff; border:3px solid #111; padding:15px; border-radius:12px; font-size:0.8rem; font-weight:bold;\'>🖼️ Extra 1</div>'">
       </div>
