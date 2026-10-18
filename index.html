@@ -13,7 +13,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* SFONDO PRINCIPALE: Sfumatura morbida dal blu soft in alto al verde soft in basso lungo tutta la pagina */
+    /* SFONDO PRINCIPALE: Sfumatura morbida dal blu cielo soft in alto al verde chiaro e delicato in basso */
     body {
       width: 100%;
       min-height: 100vh;
@@ -24,10 +24,10 @@
       display: flex;
       justify-content: center;
       position: relative;
-      background: linear-gradient(to bottom, #3b5a75 0%, #4a6b5d 50%, #2f4c3c 100%);
+      background: linear-gradient(to bottom, #3b5a75 0%, #689182 50%, #7da696 100%);
     }
 
-    /* GRIGLIA MORBIDA A QUADRETTI: Creata sopra lo sfondo con opacità soffice */
+    /* GRIGLIA MORBIDA A QUADRETTI: Trasparente e delicata per uno stile cozy e naturale */
     body::before {
       content: "";
       position: fixed;
@@ -36,8 +36,8 @@
       width: 100%;
       height: 100%;
       background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
       background-size: 20px 20px;
       pointer-events: none;
       z-index: 0;
@@ -138,7 +138,7 @@
         </div>
       </div>
 
-      <!-- Spazio extra così puoi scrollare e vedere la sfumatura che cambia da blu a verde -->
+      <!-- Spazio extra per lo scroll -->
       <div class="content-box">
         <h2>🏰 The Moving Castle</h2>
         <p>This page will hold all my favorite GIFs, artwork, music recommendations, and memories about Howl and Sophie's story.</p>
