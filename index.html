@@ -13,7 +13,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* SFONDO PRINCIPALE: Sfumatura morbida dal blu notte all'azzurro cielo luminoso */
+    /* SFONDO PRINCIPALE: Dal blu notte in alto all'azzurro cielo luminoso in basso */
     body {
       width: 100%;
       min-height: 100vh;
@@ -27,7 +27,7 @@
       background: linear-gradient(to bottom, #1a3a5f 0%, #4a7c9d 50%, #87b2c9 100%);
     }
 
-    /* GRIGLIA A QUADRETTI SOFT */
+    /* GRIGLIA A QUADRETTI LEGGERA */
     body::before {
       content: "";
       position: fixed;
@@ -53,7 +53,7 @@
       z-index: 1;
     }
 
-    /* LOGO GRANDE IN ALTO */
+    /* LOGO GRANDE E PULITO IN ALTO */
     .top-banner {
       display: flex;
       justify-content: center;
@@ -69,37 +69,26 @@
       filter: drop-shadow(3px 3px 0px #111111);
     }
 
-    /* BLOCCO CARTA DA LETTERE CON L'IMMAGINE NOTE-PAPER.PNG */
-    .paper-note-wrapper {
-      position: relative;
-      width: 100%;
+    /* FOGLIO DI DIARIO (Usa l'immagine della carta da lettere) */
+    .diary-paper {
+      background: #fcf8ee;
       border: 3px solid #111111;
-      border-radius: 18px;
-      overflow: hidden;
+      border-radius: 12px;
+      padding: 25px 30px;
       box-shadow: 6px 6px 0px #111111;
-      background: #fdfaf2;
+      position: relative;
+      transform: rotate(-1deg);
     }
 
-    .paper-bg-img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .paper-text-overlay {
-      position: absolute;
-      top: 18%;
-      left: 8%;
-      right: 8%;
-      bottom: 8%;
-      overflow-y: auto;
+    .diary-paper p {
       font-size: 0.95rem;
       font-weight: 700;
       line-height: 1.8;
       color: #222222;
+      margin-top: 10px;
     }
 
-    /* AREA SCRAPBOOK / GIF SPARSE */
+    /* CONTENITORE LIBERO PER LE GIF SPARSE */
     .scrapbook-area {
       display: flex;
       flex-direction: column;
@@ -127,7 +116,7 @@
       background: #fff;
     }
 
-    /* Dimensioni varie per le GIF */
+    /* GIF di dimensioni diverse come volevi tu */
     .gif-large { width: 240px; height: 160px; }
     .gif-medium { width: 180px; height: 130px; }
     .gif-small { width: 130px; height: 130px; }
@@ -175,15 +164,15 @@
       <img src="howl-logo.png" alt="Howl's Moving Castle" class="logo-img">
     </header>
 
-    <!-- Foglio di quaderno/carta da lettere originale -->
-    <div class="paper-note-wrapper">
-      <img src="​note-paper.png" alt="Note Paper Background" class="paper-bg-img">
-      <div class="paper-text-overlay">
-        <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. I wanted a special corner on my site to collect all my favorite moments of Sophie, Howl, and Calcifer. ✨</p>
+    <!-- Foglio di diario/lettera con il tuo messaggio -->
+    <div class="diary-paper">
+      <div style="font-family: monospace; font-size: 0.8rem; border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 10px; font-weight: bold;">
+        Date: <span>Shrine</span> &nbsp;&nbsp;&nbsp;&nbsp; Page: <span>01</span>
       </div>
+      <p>Welcome to my dedicated shrine for <strong>Howl's Moving Castle</strong>! Hayao Miyazaki's masterpiece is full of magic, cozy atmospheres, and unforgettable memories. I wanted a special corner on my site to collect all my favorite moments of Sophie, Howl, and Calcifer. ✨</p>
     </div>
 
-    <!-- GIF sparse e libere -->
+    <!-- Area scrapbook libera con GIF di dimensioni diverse e disposte a mano -->
     <div class="scrapbook-area">
       
       <div class="gif-item">
